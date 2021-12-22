@@ -1,25 +1,56 @@
-import logo from './logo.svg';
+import { useState } from "React"
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const Cats =  () => {
+
+  const [kittiesArray, setKittiesArray] = useState([])
+
+
+  const getCat = async () => {
+      const response = await fetch( "https://api.thecatapi.com/v1/images/search?limit=20",{
+      method: "GET",})
+
+      const kittyarray = await response.json();
+      setKittiesArray(kittyarray)
+
+
+  }
+  
+
+  return(
+      <div>
+      <h1>Hello cats</h1>
+     
+      <button onClick={getCat}>Get you a cat!</button>
+
+      {kittiesArray.map((cat, index) =>{
+          return <CatCard key="index " image={cat.url}/>
+  
+       
+
+      })}
+      
+   
+      </div>
+  )
+  
+};
+
+const CatCard = (props) => {
+
+  return(
+      <div className="catCard">
+      <img src={props.image} alt="a cat"/>
+      <button>Get yours</button>
+     </div>
+  )
+  
 }
 
-export default App;
+
+
+
+
+export default Cats;

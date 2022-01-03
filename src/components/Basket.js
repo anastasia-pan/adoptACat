@@ -4,17 +4,17 @@ import { useState } from "react";
 
 const Basket = (props) => {
 
-    const [total, setTotal] = useState(0)
+
     const [catsBought, setCatsBought] = useState(false)
     let catBasket = props.catBasket
     let setcatBasket = props.setCatBasket
 
-    const changeTotal = () => {
-        let sum = total
+    const getTotal = () => {
+        let sum = 0
         for (let i in catBasket) {
-            sum += i.price 
+            sum += catBasket[i].price 
         }
-        setTotal(sum)
+        return sum
     }
 
     const notification = async () => {
@@ -36,7 +36,7 @@ const Basket = (props) => {
             ) 
   
     })}
-    <h3>Your total is: {total}</h3>
+    <h3>Your total is: {getTotal()}</h3>
     <button>Purchase here</button>
     </div>
     )

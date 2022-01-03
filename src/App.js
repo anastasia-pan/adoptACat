@@ -1,16 +1,36 @@
 import { useState } from "react"
-import { useEffect } from "react"
 import './App.css';
 import Cats from  './components/Cats';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import Header from "./components/Header"
+import Basket from "./components/Basket"
 
 
 
 const App =  () => {
 
+const [catBasket, setCatBasket] = useState([])
+
 return(
-  <Cats />
+  <div className="App">
+
+       <Router>
+       <Link to="/blah">blah</Link>
+        <Header />
+          <Switch>
+        
+          <Route path="/basket">
+            <Basket catBasket={catBasket} setCatBasket={setCatBasket} />
+          </Route>
+          <Route path="/blah">
+            <p>Blah</p>
+          </Route>
+          <Route path="/">
+            <Cats catBasket={catBasket} setCatBasket={setCatBasket} />
+          </Route>
+          </ Switch>
+      </ Router>
+  </div>
 
 )
 

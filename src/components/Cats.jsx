@@ -2,28 +2,20 @@ import { useState } from "react"
 import '../App.css';
 import faker from  'faker';
 import { useEffect } from "react"
-import shoppingCart from "./shopping_cart.svg"
-import catBed from "./cat-bed.svg"
 
 
 
-const Cats =  () => {
+
+const Cats =  (props) => {
   const [kittiesArray, setKittiesArray] = useState([])
-  const [catBasket, setcatBasket] = useState([])
- 
+  let catBasket = props.catBasket
+  let setcatBasket = props.setCatBasket
   useEffect(() => {
     getCat()
   }, [])
 
 
- const checkBreeds = async (object) => {
-  if (object.breeds.length === 0) {
-    const response = await fetch( "https://api.thecatapi.com/v1/images/search",{
-      method: "GET",})
-        object = response
-        checkBreeds(object)};
 
-  }
 
   const updateBasket = (cat) => {
     let newBasket = [...catBasket];
@@ -41,7 +33,9 @@ const Cats =  () => {
       for (let i=0; i < kittyarray.length; i++){
        
         kittyarray[i].name=faker.name.firstName();
-        kittyarray[i].bio=faker.name.jobDescriptor()
+        kittyarray[i].bio=faker.name.jobTitle();
+        kittyarray[i].price= Math.floor(Math.random() * (30-5) + 5);
+
       }
      
       setKittiesArray(kittyarray)
@@ -54,7 +48,7 @@ const Cats =  () => {
 
   return(
       <div>
-      <Header/>
+
      
       {/* <button onClick={getCat}>Get you a cat!</button> */}
       <div className="mainpage">
@@ -71,15 +65,6 @@ const Cats =  () => {
   
 };
 
-const Header = () =>{
-
-  return(
-    <div className="header">
-  <h2>A cat shop</h2>
-  <img src={catBed} alt="a shopping cart" />
-
-  </div>)
-}
 
 
 const CatCard = (props) => {
@@ -92,6 +77,7 @@ const CatCard = (props) => {
         <div className="cardText">
           <h3 id="catName">{props.data.name}</h3>
           <h3 id="catBio">{props.data.bio}</h3>
+          <h3 id="catPrice"> Price: £{props.data.price}</h3>
           <a href="/otherplace">More Info</a>
         </div>
       </div>

@@ -1,56 +1,30 @@
-import { useState } from "React"
+import { useState } from "react"
+import { useEffect } from "react"
 import './App.css';
+import Cats from  './components/Cats';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 
 
-const Cats =  () => {
 
-  const [kittiesArray, setKittiesArray] = useState([])
+const App =  () => {
 
+return(
+  <Cats />
 
-  const getCat = async () => {
-      const response = await fetch( "https://api.thecatapi.com/v1/images/search?limit=20",{
-      method: "GET",})
+)
 
-      const kittyarray = await response.json();
-      setKittiesArray(kittyarray)
-
-
-  }
-  
-
-  return(
-      <div>
-      <h1>Hello cats</h1>
-     
-      <button onClick={getCat}>Get you a cat!</button>
-
-      {kittiesArray.map((cat, index) =>{
-          return <CatCard key="index " image={cat.url}/>
-  
-       
-
-      })}
-      
-   
-      </div>
-  )
-  
-};
-
-const CatCard = (props) => {
-
-  return(
-      <div className="catCard">
-      <img src={props.image} alt="a cat"/>
-      <button>Get yours</button>
-     </div>
-  )
-  
 }
 
 
+// questions to ask: faker is not working and how to push header to top
+// css for cat card not working
+//why doI need return in the map array  react_devtools_backend.js:4045 Warning: Functions are not valid as a React child.
+//why two children with the same ind
+//
 
 
 
-export default Cats;
+
+
+export default App;

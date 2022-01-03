@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&family=Libre+Baskerville&family=M+PLUS+1+Code:wght@100;300&family=Mukta:wght@200&family=Open+Sans:wght@300;400&family=Orbitron:wght@500&family=Outfit:wght@200;300&family=Roboto+Slab:wght@300&family=Shizuru&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +10,106 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  display: flex;
+  
+
+  font-family: 'Shizuru', cursive;
+  margin-top: 0px;
+  font-size: 40px;
+  width: 100%;
+  padding-left: 20px;
+  background-color: #f77f00;
+  padding-bottom: 20px;
+}
+
+.header img{
+  display: inline-blocks;
+  height: 40px;
+  width: 40px
+ 
+}
+
+.header h2{ 
+  margin-top: 0;
+}
+
+.catList{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 50px;
+  margin-left:100px;
+ 
+  
+}
+
+
+.catCard{
+    
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  /* flex: 1 0 21%; explanation below */ 
+  margin: 10px;
+  max-width: 30%;
+
+  padding: 10px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+
+}
+
+.catImages{
+  width: 150px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.catCard button {
+  background: #f77f00;
+  color: #fff;
+  margin: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: start;
+  padding: 5px;
+}
+
+.catCard button:hover {
+  background: #ca6702;
+}
+
+.catCard button:active {
+  background: #ca6702;
+  top: 2px;
+}
+
+.catCard button:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 3;
+  font-size: 140%;
+  width: 60px;
+}
+
+.catInfo{
+  display: flex;
+}
+
+
+.cardText{
+  display: flex;
+  flex-direction: column;
+ max-height: 30px;
 }

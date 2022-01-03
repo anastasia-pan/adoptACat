@@ -15,15 +15,12 @@ return(
   <div className="App">
 
        <Router>
-       <Link to="/blah">blah</Link>
-        <Header />
+
+        <Header catBasket={catBasket}  />
           <Switch>
         
           <Route path="/basket">
             <Basket catBasket={catBasket} setCatBasket={setCatBasket} />
-          </Route>
-          <Route path="/blah">
-            <p>Blah</p>
           </Route>
           <Route path="/">
             <Cats catBasket={catBasket} setCatBasket={setCatBasket} />

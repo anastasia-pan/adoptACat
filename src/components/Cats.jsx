@@ -78,7 +78,6 @@ const CatCard = (props) => {
           <h3 id="catName">{props.data.name}</h3>
           <h3 id="catBio">{props.data.bio}</h3>
           <h3 id="catPrice"> Price: £{props.data.price}</h3>
-          <a href="/otherplace">More Info</a>
         </div>
       </div>
      </div>

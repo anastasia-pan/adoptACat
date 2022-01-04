@@ -27,8 +27,15 @@ const Basket = (props) => {
         setLoading(false) 
     
     }, 1000)
+     
+    }
 
-        
+    const removeCat  = (index) => {
+        let newBasket = [...catBasket];
+        newBasket.splice(index,1);
+        setcatBasket(newBasket)
+        console.log(catBasket)
+
     }
     
 
@@ -43,14 +50,23 @@ const Basket = (props) => {
         catsBought ? 
             <h2>Thank you for your custom, your felines will arrive soon! </h2>
         :  
-            catBasket.map((product, index) => {
-                return ( <>
-                    <BasketItem key={index} product={product} image={product.url} price={product.price}/>  
-                    <h3>Your total is: {getTotal()}</h3>
-                    <button onClick={notification}>Purchase here</button> 
-                    </>
-                ) 
-            })
+       
+        <div>
+           
+            {catBasket.map((product, index) => {
+                return(
+      
+                <BasketItem key={index} product={product} image={product.url} price={product.price} remove={removeCat}/>  
+                    
+                )
+                 
+            })}
+            <div className="checkoutBox">
+            <h3>Your total is: £{getTotal()}</h3>,
+            <button onClick={notification}>Purchase here</button> 
+            </div>
+        </ div>
+        
         )
     }
 
@@ -61,10 +77,11 @@ const Basket = (props) => {
 
 const BasketItem = (props) => {
     return(
-        <div>
-            <img src={props.image} alt="a cat" />
-            <h3>name: {props.product.name}</h3>
-            <h3>price: {props.product.price}</h3>
+        <div className="basketItem">
+            <img className="basketImage" src={props.image} alt="a cat" />
+            <h3 className="basketName">{props.product.name}</h3>
+            <h3 className="basketPrice">price: £{props.product.price}</h3>
+            <button onClick={() => props.remove(props.product.name)}>Remove</button>
         </div>
     )
     

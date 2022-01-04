@@ -30,9 +30,9 @@ const Basket = (props) => {
      
     }
 
-    const removeCat  = (index) => {
+    const removeCat  = (catName) => {
         let newBasket = [...catBasket];
-        newBasket.splice(index,1);
+        newBasket.splice(catName,1);
         setcatBasket(newBasket)
         console.log(catBasket)
 

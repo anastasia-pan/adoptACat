@@ -5,8 +5,8 @@ import { Link } from "react-router-dom"
 const Header = (props) =>{
 
     return(
-      <>
-      <div className="header">
+    <>
+    <div className="header">
     <Link to="/">
     <h2>A cat shop</h2>
     </Link>

@@ -80,7 +80,7 @@ const BasketItem = (props) => {
         <div className="basketItem">
             <img className="basketImage" src={props.image} alt="a cat" />
             <h3 className="basketName">{props.product.name}</h3>
-            <h3 className="basketPrice">price: £{props.product.price}</h3>
+            <h3 className="basketPrice">£{props.product.price}</h3>
             <button onClick={() => props.remove(props.product.name)}>Remove</button>
         </div>
     )

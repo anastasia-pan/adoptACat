@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/adoptACat/static/css/main.11281c87.css",
+    "main.js": "/adoptACat/static/js/main.a0828f38.js",
+    "static/media/cat-bed.svg": "/adoptACat/static/media/cat-bed.a258c50702796c3fc9454bd7bb3152a0.svg",
+    "index.html": "/adoptACat/index.html",
+    "main.11281c87.css.map": "/adoptACat/static/css/main.11281c87.css.map",
+    "main.a0828f38.js.map": "/adoptACat/static/js/main.a0828f38.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11281c87.css",
+    "static/js/main.a0828f38.js"
+  ]
+}
